@@ -18,20 +18,24 @@ $parentezco = $_GET['parentezco'];
    $dbhost = 'localhost';
    $dbuser = 'root';
    $dbpass = '';
-   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+   $dbname = 'clientes';
    
-   if(! $conn ) {
-      die('Error al agregar cliente: ' . mysql_error());
-   }
-		$sql = "INSERT INTO datos (dni, nombre, apellido, tel, email, fnac, fini, plan, sexo, emername, emertel, osoc, parentezco)
-				VALUES ('$dni', '$nombre', '$apellido',  '$tel', '$mail', '$fnac', '$fini', '$plan', '$sexo', '$emername', '$emertel', '$osoc', '$parentezco')";
-    		mysql_select_db('clientes');
-			$retval = mysql_query( $sql, $conn );
-   
-   if(! $retval ) {
-      die('Could not enter data: ' . mysql_error());
-   }
-   echo "Se Agrego correctamente <br>";
+   $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "UPDATE datos SET nombre='$nombre', apellido ='$apellido', tel='$tel', email='$mail', fnac = '$fnac', fini = '$fini', plan ='$plan', sexo ='$sexo',
+ emername='$emername', emertel='$emertel', osoc ='$osoc', parentezco='$parentezco' WHERE dni='$dni'";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Se Agrego correctamente <br>";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
+
    echo "Nombre: $nombre $apellido <br>";
    echo "Sexo: $sexo";
    echo "DNI: $dni <br>";
@@ -44,11 +48,9 @@ $parentezco = $_GET['parentezco'];
    echo "Obra Social: $osoc <br>";
    echo "Parentezco: $parentezco <br>";
    
-   
-   mysql_close($conn);
+
 ?>
 
 
 <br/><br/>
 <input type="button" class="btn" onClick="location.href='index.php'" value="Volver al Inicio"/>
-

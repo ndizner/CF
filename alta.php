@@ -37,10 +37,10 @@
 	   <label for="radio3">Otros</label>  
 	<hr>
 <h2> Contacto de Emergencia </h2>  
-	Nombre y Apellido <input class="textbox" type="text" name="nombre" value="" required/>
-	Telefono <input class="textbox" type="int" name="tel" value="" maxlength="10" required/><br/><br/>
-	Obra Social  <input class="textbox" type="text" name="nombre" value="" required/>
-	Parentezco <input class="textbox" type="text" name="nombre" value="" required/>
+	Nombre y Apellido <input class="textbox" type="text" name="emername" value="" required/>
+	Telefono <input class="textbox" type="int" name="emertel" value="" maxlength="10" required/><br/><br/>
+	Obra Social  <input class="textbox" type="text" name="osoc" value="" required/>
+	Parentezco <input class="textbox" type="text" name="parentezco" value="" required/>
 
 	 <hr> 
 <h2> Información Administrativa </h2> 
