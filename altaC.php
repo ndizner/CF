@@ -10,6 +10,10 @@ $fnac = $_GET['nac'];
 $fini = $_GET['ini']; 
 $plan = $_GET['plan']; 
 $sexo = $_GET['sexo'];
+$emername =$_GET['emername'];
+$emertel = $_GET['emertel']; 
+$osoc = $_GET['osoc']; 
+$parentezco = $_GET['parentezco'];
 
    $dbhost = 'localhost';
    $dbuser = 'root';
@@ -19,8 +23,8 @@ $sexo = $_GET['sexo'];
    if(! $conn ) {
       die('Error al agregar cliente: ' . mysql_error());
    }
-		$sql = "INSERT INTO datos (dni, nombre, apellido, tel, email, fnac, fini, plan, sexo)
-				VALUES ('$dni', '$nombre', '$apellido',  '$tel', '$mail', '$fnac', '$fini', '$plan', '$sexo')";
+		$sql = "INSERT INTO datos (dni, nombre, apellido, tel, email, fnac, fini, plan, sexo, emername, emertel, osoc, parentezco)
+				VALUES ('$dni', '$nombre', '$apellido',  '$tel', '$mail', '$fnac', '$fini', '$plan', '$sexo', '$emername', '$emertel', '$osoc', '$parentezco')";
     		mysql_select_db('clientes');
 			$retval = mysql_query( $sql, $conn );
    
@@ -35,17 +39,16 @@ $sexo = $_GET['sexo'];
    echo "Mail: $mail <br>";
    echo "Fecha de Nac: $fnac <br>";
    echo "Fecha de Inicio: $fini <br>";
+   echo "Contacto de Emergencia: $emername <br>";
+   echo "Telefono de Emergencia: $emertel <br>";
+   echo "Obra Social: $osoc <br>";
+   echo "Parentezco: $parentezco <br>";
    
    
    mysql_close($conn);
 ?>
 
 
-
-<form action="subir.php" method="POST" enctype="multipart/form-data">
-Añadir imagen: <input name="archivo" id="archivo" type="file"/>
-<input type="submit" class="btn" value="Subir imagen"/>
-</form>
-
+<br/><br/>
 <input type="button" class="btn" onClick="location.href='index.php'" value="Volver al Inicio"/>
 

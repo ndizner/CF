@@ -9,7 +9,7 @@
 
 <h2> Clientes </h2>
     <input type="button" class="btn" onClick="location.href='alta.php'" value="Alta nuevo Cliente"/>
-    <input type="button" class="btn" onClick="location.href='busco.php'" value="Modificar Cliente" />
+    <input type="button" class="btn" onClick="location.href='modifica.php'" value="Modificar Cliente" />
 	<input type="button" class="btn" onClick="location.href='alta.php'" value="Baja Cliente"/>
     <input type="button" class="btn" onClick="location.href='busco.php'" value="Informar Pago" />
 	<hr>
@@ -18,7 +18,7 @@
     <input type="button" class="btn" onClick="location.href='busco.php'" value="Ver Por Hora" />
 	<hr>
 <h2> Varios </h2>
-    <input type="button" class="btn" onClick="location.href='img.php'" value="ABM Productos"/>
+    <input type="button" class="btn" onClick="location.href='test.php'" value="ABM Productos"/>
     <input type="button" class="btn" onClick="location.href='busco.php'" value="Caja Diaria" />
 	<hr>
 	<br/><br/><br/>
