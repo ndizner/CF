@@ -8,7 +8,10 @@
 <body>
 <form name="formularioDatos" method="get" action="altaC.php">
 <img src="haya.jpg"  alt="HAYABUSA" align="right">
-<h2> Datos personales </h2>
+<div align="center"> 
+<h2> Alta de nuevo Cliente </h2>
+</div>
+<h3> Datos personales </h3>
 	Nombre <input class="textbox" type="text" name="nombre" value="" required/>
 	Apellido <input class="textbox" type="text" name="apellido" value="" required/>
 	<br/> <br/>
@@ -36,14 +39,14 @@
 	<input type="radio" id="radio3" name="sexo" value="otros">
 	   <label for="radio3">Otros</label>  
 	<hr>
-<h2> Contacto de Emergencia </h2>  
+<h3> Contacto de Emergencia </h3>  
 	Nombre y Apellido <input class="textbox" type="text" name="emername" value="" required/>
 	Telefono <input class="textbox" type="int" name="emertel" value="" maxlength="10" required/><br/><br/>
 	Obra Social  <input class="textbox" type="text" name="osoc" value="" required/>
 	Parentezco <input class="textbox" type="text" name="parentezco" value="" required/>
 
 	 <hr> 
-<h2> Información Administrativa </h2> 
+<h3> Información Administrativa </h3> 
 	   Fecha de inicio
 	 <input class="textbox" type="date" name="ini" value="" required/>
 	<script>
