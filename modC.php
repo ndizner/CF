@@ -30,12 +30,15 @@ if ($result->num_rows > 0) {
 		$emertel=$row["emertel"];
 		$parentezco=$row["parentezco"];
 		$osoc=$row["osoc"];		
+		echo '<img src="data:image/png;base64,' . base64_encode($row['imagen']) . '" / width="400" height="500" align="right" >';
 }
 } else {
     echo "No se encontraron clientes con ese DNI";
 	header('Location: modifica.php');
 }
 $conn->close();	
+
+ 
 ?>
 <head>
 <title>Modificacion de Cliente</title>
@@ -44,7 +47,7 @@ $conn->close();
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body>
-<form name="formularioDatos" method="get" action="modD.php">
+<form name="formularioDatos" method="POST" action="modD.php" enctype="multipart/form-data">
 <img src="haya.jpg"  alt="HAYABUSA" align="right">
 <div align="center"> 
 <h2> Modificar datos de cliente </h2>
@@ -63,6 +66,7 @@ $conn->close();
 				});
 		}
 	</script>
+	
 	DNI <input class="textbox" type="int" name="dni" value="<?php echo $dni ?>"  minlength="8" maxlength="8" readonly="readonly"  required/> Este campo no se puede modificar
 	<br/> <br/>
 	Telefono <input class="textbox" type="int" name="tel" value="<?php echo $tel ?>" maxlength="10" required/>
@@ -98,12 +102,22 @@ $conn->close();
 	</script>  (se tomorá como fecha de vencimiento)
 	 <br/> <br/>
 	Plan
-	<input type="radio" id="radio4" name="plan" value="1" checked>
+Plan
+	<input type="radio" id="radio4" name="plan" value="Libre" checked>
 	   <label for="radio4">Libre</label>
-	<input type="radio" id="radio5" name="plan"value="2">
+	<input type="radio" id="radio5" name="plan"value="Plan 2">
 	   <label for="radio5">Plan 2</label>
-	<input type="radio" id="radio6" name="plan" value="3">
-	   <label for="radio6">Plan 3</label>   
+	<input type="radio" id="radio6" name="plan" value="Plan 3">
+	   <label for="radio6">Plan 3</label>  
+	   
+	   
+	     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	   <input method="POST" class="btn" type="file" name="imagen" >
 	 <br/> <br/>
 	 
 
