@@ -12,6 +12,7 @@
     <input type="button" class="btn" onClick="location.href='modifica.php'" value="Modificar Cliente" />
 	<input type="button" class="btn" onClick="location.href='alta.php'" value="Baja Cliente"/>
     <input type="button" class="btn" onClick="location.href='busco.php'" value="Informar Pago" />
+	 <input type="button" class="btn" onClick="location.href='datos.php'" value="Ficha Cliente" />
 	<hr>
  <h2> Reportes </h2>
     <input type="button" class="btn" onClick="location.href='alta.php'" value="Ver Mensual"/>

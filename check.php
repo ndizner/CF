@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="mystyle.css">
+<link rel="stylesheet" type="text/css" href="mystyle3.css">
 
 <?php	
    $dbhost = 'localhost';
@@ -19,6 +19,7 @@ $result = $conn->query($sql);
 		while($row = $result->fetch_assoc()) {
 			echo "DNI: " . $row["dni"]. " - Nombre: " . $row["nombre"]. " " . $row["apellido"]. "<br>";
 			$nombre = " ". $row["nombre"]. " " . $row["apellido"]."";
+			 echo '<img src="data:image/png;base64,' . base64_encode($row['imagen']) . '" / width="400" height="500" align="right" >';
 	} 
 $conn->close();
 	}else {
@@ -27,7 +28,7 @@ $conn->close();
 		header('Location: checkin.php');
 	}
 //aca checkeo la existencia del DNI; si no existe marco la variable check como falsa y no entro en el otro if	
-// de encontrar el DNI; nos devuelve nombre y apellido  
+// de encontrar el DNI; nos devuelve nombre, apellido e imagen 
  
  
  if ($check == true){  
@@ -38,7 +39,6 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 $sql = "SELECT * FROM movimientos where dni = '$dni' ORDER BY fecha DESC LIMIT 1;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-		echo "Registros Encontrados: <br>";
 		while($row = $result->fetch_assoc()) {
 			echo "Ultima Fecha de Pago: " . $row["fecha"]. "<br>";
 	//aca trae el ultimo registro de movimiento de la BD	
@@ -70,6 +70,8 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 } 
+//aca agrego en la base de ingresos los datos de la persona que ingreso.
+
 $sql = "INSERT INTO ingreso (dni,fecha, hora, clase	)
 				VALUES ('$dni', '$fecha', '$hora',  '$clase')";
 $result = $conn->query($sql);
@@ -77,7 +79,5 @@ $conn->close();
  }
 
 ?>
- <img src="<?php echo('img/'); echo $dni; echo ".jpg";
- ?>" align="right" />
 
  <META HTTP-EQUIV="REFRESH" CONTENT="7;checkin.php">
