@@ -10,7 +10,7 @@
 <h2> Clientes </h2>
     <input type="button" class="btn" onClick="location.href='alta.php'" value="Alta nuevo Cliente"/>
     <input type="button" class="btn" onClick="location.href='modifica.php'" value="Modificar Cliente" />
-	<input type="button" class="btn" onClick="location.href='alta.php'" value="Baja Cliente"/>
+	<input type="button" class="btn" onClick="location.href='bajaC.php'" value="Baja Cliente"/>
     <input type="button" class="btn" onClick="location.href='busco.php'" value="Informar Pago" />
 	 <input type="button" class="btn" onClick="location.href='datos.php'" value="Ficha Cliente" />
 	<hr>

@@ -55,7 +55,7 @@ $conn->close();
 <form name="formularioDatos" method="POST"  enctype="multipart/form-data">
 <img src="haya.jpg"  alt="HAYABUSA" align="right" align="bott">
 <div align="center"> 
-<h2> Información de Cliente </h2>
+<h2> Ficha del Cliente </h2>
 </div>
 <h3> Datos personales </h3>
 	<div align="justify">
@@ -147,11 +147,11 @@ if ($check == true){
 			if ($conn->connect_error) {
 				die("Connection failed: " . $conn->connect_error);
 			} 
-		$sql = "SELECT * FROM movimientos where dni = '$dni' ORDER BY fecha DESC LIMIT 1;";
+		$sql = "SELECT * FROM movimientos where DNI = '$dni' ORDER BY fecha DESC LIMIT 1;";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {
-			$date=date_create($row["fecha"]);
+			$date=date_create($row["Fecha"]);
 			date_add($date,date_interval_create_from_date_string("1 month"));
 			echo "Proxima Fecha de Vencimiento: ";
 			echo date_format($date,"Y-m-d");
