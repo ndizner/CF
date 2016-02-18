@@ -15,20 +15,27 @@ $emertel = $_POST['emertel'];
 $osoc = $_POST['osoc']; 
 $parentezco = $_POST['parentezco'];
 $imagename=$_FILES["imagen"]; 
+$check=$_POST['check'];
 
 	   $dbhost = 'localhost';
 	   $dbuser = 'root';
 	   $dbpass = '';
 	   $dbname = 'clientes';
 	   $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-	   $imagetmp=addslashes (file_get_contents($_FILES['imagen']['tmp_name']));
+	
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
-$sql = "UPDATE datos SET nombre='$nombre', apellido ='$apellido', tel='$tel', email='$mail', fnac = '$fnac', fini = '$fini', plan ='$plan', sexo ='$sexo',
- emername='$emername', emertel='$emertel', osoc ='$osoc', parentezco='$parentezco', imagen='$imagetmp' WHERE dni='$dni'";
-
+if($check == 1){
+		$imagetmp=addslashes (file_get_contents($_FILES['imagen']['tmp_name']));
+		$sql = "UPDATE datos SET nombre='$nombre', apellido ='$apellido', tel='$tel', email='$mail', fnac = '$fnac', fini = '$fini', plan ='$plan', sexo ='$sexo',
+	 emername='$emername', emertel='$emertel', osoc ='$osoc', parentezco='$parentezco', imagen='$imagetmp' WHERE dni='$dni'";    
+}
+	 else {
+	$sql = "UPDATE datos SET nombre='$nombre', apellido ='$apellido', tel='$tel', email='$mail', fnac = '$fnac', fini = '$fini', plan ='$plan', sexo ='$sexo',
+		 emername='$emername', emertel='$emertel', osoc ='$osoc', parentezco='$parentezco' WHERE dni='$dni'"; 
+	 }
 if ($conn->query($sql) === TRUE) {
     echo "Se Agrego correctamente <br>";
 	

@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
 		$emername=$row["emername"];
 		$emertel=$row["emertel"];
 		$parentezco=$row["parentezco"];
-		$osoc=$row["osoc"];		
+		$osoc=$row["osoc"];	
 		echo '<img src="data:image/png;base64,' . base64_encode($row['imagen']) . '" / width="400" height="500" align="right" >';
 }
 } else {
@@ -48,7 +48,6 @@ $conn->close();
 </head>
 <body>
 <form name="formularioDatos" method="POST" action="modD.php" enctype="multipart/form-data">
-<img src="haya.jpg"  alt="HAYABUSA" align="right">
 <div align="center"> 
 <h2> Modificar datos de cliente </h2>
 </div>
@@ -79,7 +78,15 @@ $conn->close();
 	<input type="radio" id="radio2" name="sexo"value="Femenino">
 	   <label for="radio2">Femenino</label>
 	<input type="radio" id="radio3" name="sexo" value="otros">
-	   <label for="radio3">Otros</label>  
+	   <label for="radio3">Otros</label>  <br/> <br/>
+	   
+			   <input method="POST" class="btn" type="file" name="imagen" align="right"  >
+		   Se Modifico la Imagen?
+		<input type="radio" id="radio8" name="check" value="1" align="right">
+		   <label for="radio8">SI</label>
+		<input type="radio" id="radio9" name="check"value="0" checked align="right">
+		   <label for="radio9">No</label>
+	   
 	<hr>
 <h3> Contacto de Emergencia </h3>  
 	Nombre y Apellido <input class="textbox" type="text" name="emername" value="<?php echo $emername ?>" required/>
@@ -101,7 +108,6 @@ $conn->close();
 		}
 	</script>  (se tomorá como fecha de vencimiento)
 	 <br/> <br/>
-	Plan
 Plan
 	<input type="radio" id="radio4" name="plan" value="Libre" checked>
 	   <label for="radio4">Libre</label>
@@ -109,20 +115,9 @@ Plan
 	   <label for="radio5">Plan 2</label>
 	<input type="radio" id="radio6" name="plan" value="Plan 3">
 	   <label for="radio6">Plan 3</label>  
-	   
-	   
-	     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-	   <input method="POST" class="btn" type="file" name="imagen" >
+
 	 <br/> <br/>
 	 
-
- 
-
  <input type="button" class="btn" onClick="location.href='index.php'" value="Volver al Inicio"/>
 <input value="Guardar" class="btn" type="submit" />
 </div>
