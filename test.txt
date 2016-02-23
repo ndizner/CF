@@ -1,0 +1,5 @@
+<?php 
+$fechaactual = getdate();
+print_r($fechaactual);
+echo "Hoy es: $fechaactual[weekday], $fechaactual[mday] de $fechaactual[month] de $fechaactual[year]";
+?>

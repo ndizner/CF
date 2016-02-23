@@ -11,7 +11,7 @@
    if(! $conn ) {
       die('Error al agregar cliente: ' . mysql_error());
    }
-   $sql = "INSERT INTO movimientos (dni, fecha, concepto)
+   $sql = "INSERT INTO movimientos (DNI, Fecha, Concepto)
     VALUES ('$dni', '$fecha', '$concepto')";
 echo "pago aplicado con éxito <br>";
 echo "DNI: $dni <br>";

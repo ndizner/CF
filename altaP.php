@@ -47,16 +47,9 @@ $imagename=$_FILES["imagen"];
    echo "Obra Social: $osoc <br>";
    echo "Parentezco: $parentezco <br>";
    
-   
+  
    mysql_close($conn);
 ?>
-
-<body>
-<img src="getImage.php?id=1" width="175" height="200" />
-</body>
-
-
-
 
 <br/><br/>
 <input type="button" class="btn" onClick="location.href='index.php'" value="Volver al Inicio"/>
